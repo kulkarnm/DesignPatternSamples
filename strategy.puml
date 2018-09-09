@@ -1,0 +1,50 @@
+@startuml
+
+abstract class IncomeTaxCalculator
+
+abstract class ExemptionRule {
+    double calculateDeductions(Income income);
+}
+class IndiaTaxCalculator
+class UKTaxCalculator
+
+class Exemption {
+    int exemptionSequence;
+    INSTRUMENT instrument;
+    double exemptionPercentage;
+}
+
+class IndiaExemptionRule
+class UKExemptionRule
+
+
+abstract class SlabRule {
+  double calculateTaxAmount(double taxableAmount);
+}
+
+class TaxSlab {
+    double minIncome;
+    double maxIncome;
+    double slabPercentage;
+}
+
+class IndiaSlabRule
+class UKSlabRule
+
+
+ExemptionRule *-- Exemption
+ExemptionRule <|-- IndiaExemptionRule
+ExemptionRule <|-- UKExemptionRule
+
+SlabRule *-- TaxSlab
+SlabRule <|-- IndiaSlabRule
+SlabRule <|-- UKSlabRule
+
+IncomeTaxCalculator <|-- IndiaTaxCalculator
+IncomeTaxCalculator <|-- UKTaxCalculator
+IncomeTaxCalculator -- ExemptionRule
+IncomeTaxCalculator -- SlabRule
+
+
+
+@enduml
