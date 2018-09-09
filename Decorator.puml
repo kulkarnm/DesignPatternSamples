@@ -1,0 +1,48 @@
+@startuml
+interface Processor {
+     public Response execute(Request request);
+}
+class Request {
+    String userId;
+    String password;
+    long sourceAccountId;
+    long destinationAccountId;
+    double transferAmount;
+}
+
+class LoggingProcessor
+class FundTransferProcessor
+class EligibilityValidationProcessor
+class AuthenticationProcessor
+
+class Account {
+    long accountId;
+    double balance;
+}
+class User {
+    String userId;
+    String password;
+}
+class Response {
+    boolean transferStatus;
+    long sourceAccountId;
+    long destinationAccountId
+}
+Processor -- Request
+
+Processor --  LoggingProcessor
+Processor -- EligibilityValidationProcessor
+Processor -- FundTransferProcessor
+Processor -- AuthenticationProcessor
+
+EligibilityValidationProcessor -- Account
+FundTransferProcessor -- Account
+AuthenticationProcessor -- User
+
+
+Processor <|-- LoggingProcessor
+Processor <|-- EligibilityValidationProcessor
+Processor <|-- FundTransferProcessor
+Processor <|-- AuthenticationProcessor
+Processor -- Response
+@enduml
