@@ -21,6 +21,7 @@ public class FundTransferProcessor implements Processor {
         Account destAccount = accountDAO.findAccountById(request.getDestinationAccountId());
         srcAccount.debit(request.getTransferAmount());
         srcAccount.credit(request.getTransferAmount());
+        System.out.println("Transfer done");
         return true;
     }
 

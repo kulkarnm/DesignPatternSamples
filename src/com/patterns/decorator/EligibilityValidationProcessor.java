@@ -8,6 +8,7 @@ public class EligibilityValidationProcessor implements Processor {
     public Response execute(Request request){
         Account sourceAccount= AccountDAO.getInstance().findAccountById(request.getSourceAccountId());
         if(sourceAccount.getBalance()>request.getTransferAmount()){
+            System.out.println("Adequate balance is available");
             if(null !=nextProcessor) {
                 return nextProcessor.execute(request);
             }else{

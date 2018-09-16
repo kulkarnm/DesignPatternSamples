@@ -9,6 +9,7 @@ public class AuthenticationProcessor implements Processor {
     public Response execute(Request request){
         User user= UserDAO.getInstance().findUserById(request.getUserId());
         if(request.getPassword().equals(user.getPassword())){
+            System.out.println("User successfully authenticated");
             if(null !=nextProcessor) {
                 return nextProcessor.execute(request);
             }else{

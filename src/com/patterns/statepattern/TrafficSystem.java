@@ -18,20 +18,11 @@ public class TrafficSystem {
     public State getGreenState() {
         return greenState;
     }
-    public void setGreenState(State greenState) {
-        this.greenState = greenState;
-    }
     public State getRedState() {
         return redState;
     }
-    public void setRedState(State redState) {
-        this.redState = redState;
-    }
     public State getYellowState() {
         return yellowState;
-    }
-    public void setYellowState(State yellowState) {
-        this.yellowState = yellowState;
     }
     public State getCurrentState() {
         return currentState;

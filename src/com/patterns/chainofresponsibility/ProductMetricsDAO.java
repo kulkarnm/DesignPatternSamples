@@ -11,13 +11,13 @@ public class ProductMetricsDAO {
 
     static {
         productMetricsList = new ArrayList<>();
-        productMetricsList.add(new ProductMetrics("1", 2000,200000,1,2018));
-        productMetricsList.add(new ProductMetrics("1", 3000,300000,2,2018));
-        productMetricsList.add(new ProductMetrics("1", 3800,350000,3,2018));
+        productMetricsList.add(new ProductMetrics("1", 80,2000,200000,1,2018));
+        productMetricsList.add(new ProductMetrics("1", 75,3000,300000,2,2018));
+        productMetricsList.add(new ProductMetrics("1", 70,4800,350000,3,2018));
 
-        productMetricsList.add(new ProductMetrics("2", 5000,500000,1,2018));
-        productMetricsList.add(new ProductMetrics("2", 4500,450000,2,2018));
-        productMetricsList.add(new ProductMetrics("2", 4000,400000,3,2018));
+        productMetricsList.add(new ProductMetrics("2", 60,5000,500000,1,2018));
+        productMetricsList.add(new ProductMetrics("2", 58,4500,450000,2,2018));
+        productMetricsList.add(new ProductMetrics("2", 55,4000,400000,3,2018));
 
     }
 
@@ -25,7 +25,7 @@ public class ProductMetricsDAO {
 
     }
 
-    public ProductMetricsDAO getInstance(){
+    public static ProductMetricsDAO getInstance(){
         return instance;
     }
 
